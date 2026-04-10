@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pehkui Команды | Полный справочник</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: #f1f5f9;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #a5f3fc, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #22c55e;
+      color: #0f172a;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .category {
+      margin-bottom: 30px;
+    }
+
+    .category h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #334155;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .category h2 .emoji {
+      font-size: 1.6rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      padding: 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #334155;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      border-color: #22c55e;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #bbf7d0;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .command {
+      background: #020617;
+      padding: 12px;
+      border-radius: 10px;
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 0.8rem;
+      word-break: break-all;
+      margin-bottom: 12px;
+      border-left: 3px solid #22c55e;
+    }
+
+    button {
+      background: #22c55e;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #0f172a;
+      font-weight: bold;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background: #16a34a;
+      transform: scale(1.02);
+    }
+
+    .note {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-left: 4px solid #22c55e;
+    }
+
+    .note a {
+      color: #86efac;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 768px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>⚡ Pehkui Команды</h1>
+  <div class="subtitle">Полный справочник всех параметров изменения размера | Minecraft Mod</div>
+
+  <!-- Основные команды -->
+  <div class="category">
+    <h2><span class="emoji">📋</span> Основные команды</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>🎯 Установить масштаб</h3>
+        <p>Устанавливает значение для указанного типа масштаба</p>
+        <div class="command" id="cmd_set">/scale set pehkui:base 0.5 @p</div>
+        <button onclick="copy('cmd_set', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>➕ Прибавить к масштабу</h3>
+        <p>Увеличивает текущий масштаб на указанное значение</p>
+        <div class="command" id="cmd_add">/scale add pehkui:base 0.3 @p</div>
+        <button onclick="copy('cmd_add', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>➖ Вычесть из масштаба</h3>
+        <p>Уменьшает текущий масштаб на указанное значение</p>
+        <div class="command" id="cmd_sub">/scale subtract pehkui:base 0.2 @p</div>
+        <button onclick="copy('cmd_sub', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>✖️ Умножить масштаб</h3>
+        <p>Умножает текущий масштаб на указанное значение</p>
+        <div class="command" id="cmd_mul">/scale multiply pehkui:base 1.5 @p</div>
+        <button onclick="copy('cmd_mul', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>➗ Разделить масштаб</h3>
+        <p>Делит текущий масштаб на указанное значение</p>
+        <div class="command" id="cmd_div">/scale divide pehkui:base 2 @p</div>
+        <button onclick="copy('cmd_div', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>🔍 Получить текущий масштаб</h3>
+        <p>Показывает текущее значение масштаба</p>
+        <div class="command" id="cmd_get">/scale get pehkui:base @p</div>
+        <button onclick="copy('cmd_get', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>🧮 Вычислить итоговый масштаб</h3>
+        <p>Показывает итоговый масштаб с учётом всех модификаторов</p>
+        <div class="command" id="cmd_compute">/scale compute pehkui:base @p</div>
+        <button onclick="copy('cmd_compute', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>🔄 Сбросить масштаб</h3>
+        <p>Сбрасывает масштаб к значению по умолчанию (1.0)</p>
+        <div class="command" id="cmd_reset">/scale reset @p</div>
+        <button onclick="copy('cmd_reset', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>⏱️ Установить задержку изменения</h3>
+        <p>Время в тиках (20 тиков = 1 секунда) на плавное изменение размера</p>
+        <div class="command" id="cmd_delay">/scale delay set pehkui:base 40 @p</div>
+        <button onclick="copy('cmd_delay', this)">📋 Скопировать</button>
+      </div>
+      <div class="card">
+        <h3>💾 Сохранять размер после смерти</h3>
+        <p>true — размер сохранится после возрождения, false — сбросится</p>
+        <div class="command" id="cmd_persist">/scale persist set pehkui:base true @p</div>
+        <button onclick="copy('cmd_persist', this)">📋 Скопировать</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Размер и модель -->
+  <div class="category">
+    <h2><span class="emoji">📐</span> Размер и модель</h2>
+    <div class="cards-grid">
+      <div class="card"><h3>📏 Базовый размер</h3><p>Основной масштаб, влияет на все остальные параметры</p><div class="command" id="c_base">/scale set pehkui:base 1.5 @p</div><button onclick="copy('c_base', this)">Копировать</button></div>
+      <div class="card"><h3>📐 Ширина модели</h3><p>Изменяет ширину/длину/глубину модели сущности</p><div class="command" id="c_model_w">/scale set pehkui:model_width 0.7 @p</div><button onclick="copy('c_model_w', this)">Копировать</button></div>
+      <div class="card"><h3>📏 Высота модели</h3><p>Изменяет высоту модели сущности</p><div class="command" id="c_model_h">/scale set pehkui:model_height 0.7 @p</div><button onclick="copy('c_model_h', this)">Копировать</button></div>
+      <div class="card"><h3>📦 Ширина хитбокса</h3><p>Изменяет ширину/длину/глубину хитбокса</p><div class="command" id="c_hitbox_w">/scale set pehkui:hitbox_width 0.6 @p</div><button onclick="copy('c_hitbox_w', this)">Копировать</button></div>
+      <div class="card"><h3>📦 Высота хитбокса</h3><p>Изменяет высоту хитбокса сущности</p><div class="command" id="c_hitbox_h">/scale set pehkui:hitbox_height 0.6 @p</div><button onclick="copy('c_hitbox_h', this)">Копировать</button></div>
+      <div class="card"><h3>👁️ Высота глаз</h3><p>Изменяет высоту положения глаз сущности (точка обзора)</p><div class="command" id="c_eye">/scale set pehkui:eye_height 0.8 @p</div><button onclick="copy('c_eye', this)">Копировать</button></div>
+      <div class="card"><h3>🎥 Дистанция камеры от 3-го лица</h3><p>Как далеко камера от игрока в режиме 3-го лица</p><div class="command" id="c_third">/scale set pehkui:third_person 1.3 @p</div><button onclick="copy('c_third', this)">Копировать</button></div>
+      <div class="card"><h3>🖐️ Масштаб предмета в руке</h3><p>Размер предметов, которые держит игрок</p><div class="command" id="c_held">/scale set pehkui:held_item 1.2 @p</div><button onclick="copy('c_held', this)">Копировать</button></div>
+    </div>
+  </div>
+
+  <!-- Движение и физика -->
+  <div class="category">
+    <h2><span class="emoji">🏃</span> Движение и физика</h2>
+    <div class="cards-grid">
+      <div class="card"><h3>💨 Скорость движения</h3><p>Изменяет скорость передвижения (ходьба, бег)</p><div class="command" id="c_motion">/scale set pehkui:motion 1.5 @p</div><button onclick="copy('c_motion', this)">Копировать</button></div>
+      <div class="card"><h3>🦶 Высота шага</h3><p>Позволяет забираться на блоки выше без прыжка</p><div class="command" id="c_step">/scale set pehkui:step_height 1.5 @p</div><button onclick="copy('c_step', this)">Копировать</button></div>
+      <div class="card"><h3>🕹️ Покачивание вида</h3><p>Влияет на эффект покачивания камеры при ходьбе</p><div class="command" id="c_bobbing">/scale set pehkui:view_bobbing 1.2 @p</div><button onclick="copy('c_bobbing', this)">Копировать</button></div>
+      <div class="card"><h3>💔 Урон от падения</h3><p>Изменяет получаемый урон при падении</p><div class="command" id="c_falling">/scale set pehkui:falling 0.5 @p</div><button onclick="copy('c_falling', this)">Копировать</button></div>
+      <div class="card"><h3>🕊️ Скорость полёта (креатив)</h3><p>Изменяет скорость полёта в творческом режиме</p><div class="command" id="c_flight">/scale set pehkui:flight 2.0 @p</div><button onclick="copy('c_flight', this)">Копировать</button></div>
+      <div class="card"><h3>🦘 Высота прыжка</h3><p>Изменяет высоту прыжка</p><div class="command" id="c_jump">/scale set pehkui:jump_height 1.3 @p</div><button onclick="copy('c_jump', this)">Копировать</button></div>
+    </div>
+  </div>
+
+  <!-- Досягаемость и взаимодействие -->
+  <div class="category">
+    <h2><span class="emoji">🤝</span> Досягаемость и взаимодействие</h2>
+    <div class="cards-grid">
+      <div class="card"><h3>🎯 Общая досягаемость</h3><p>Влияет на дистанцию взаимодействия с блоками и сущностями</p><div class="command" id="c_reach">/scale set pehkui:reach 2.0 @p</div><button onclick="copy('c_reach', this)">Копировать</button></div>
+      <div class="card"><h3>🧱 Досягаемость до блоков</h3><p>Дистанция, с которой можно ломать/ставить блоки</p><div class="command" id="c_block">/scale set pehkui:block_reach 1.8 @p</div><button onclick="copy('c_block', this)">Копировать</button></div>
+      <div class="card"><h3>⚔️ Досягаемость атаки</h3><p>Дистанция, с которой можно ударить моба/игрока</p><div class="command" id="c_entity">/scale set pehkui:entity_reach 1.6 @p</div><button onclick="copy('c_entity', this)">Копировать</button></div>
+      <div class="card"><h3>👁️ Видимость для врагов</h3><p>Дистанция, с которой мобы замечают игрока</p><div class="command" id="c_vis">/scale set pehkui:visibility 0.5 @p</div><button onclick="copy('c_vis', this)">Копировать</button></div>
+    </div>
+  </div>
+
+  <!-- Бой и характеристики -->
+  <div class="category">
+    <h2><span class="emoji">⚔️</span> Бой и характеристики</h2>
+    <div class="cards-grid">
+      <div class="card"><h3>💥 Наносимый урон</h3><p>Изменяет урон, который наносит сущность</p><div class="command" id="c_attack">/scale set pehkui:attack 2.0 @p</div><button onclick="copy('c_attack', this)">Копировать</button></div>
+      <div class="card"><h3>🛡️ Получаемый урон</h3><p>Изменяет урон, который получает сущность (защита)</p><div class="command" id="c_defense">/scale set pehkui:defense 0.5 @p</div><button onclick="copy('c_defense', this)">Копировать</button></div>
+      <div class="card"><h3>💨 Отбрасывание (нокбэк)</h3><p>Сила отбрасывания при ударе</p><div class="command" id="c_knock">/scale set pehkui:knockback 1.5 @p</div><button onclick="copy('c_knock', this)">Копировать</button></div>
+      <div class="card"><h3>❤️ Здоровье</h3><p>Изменяет максимальное количество сердец</p><div class="command" id="c_health">/scale set pehkui:health 2.0 @p</div><button onclick="copy('c_health', this)">Копировать</button></div>
+      <div class="card"><h3>⛏️ Скорость копания</h3><p>Изменяет скорость разрушения блоков</p><div class="command" id="c_mining">/scale set pehkui:mining_speed 2.0 @p</div><button onclick="copy('c_mining', this)">Копировать</button></div>
+      <div class="card"><h3>🗡️ Скорость атаки</h3><p>Изменяет перезарядку удара (как у меча)</p><div class="command" id="c_attack_speed">/scale set pehkui:attack_speed 1.8 @p</div><button onclick="copy('c_attack_speed', this)">Копировать</button></div>
+    </div>
+  </div>
+
+  <!-- Предметы и спецэффекты -->
+  <div class="category">
+    <h2><span class="emoji">💎</span> Предметы и спецэффекты</h2>
+    <div class="cards-grid">
+      <div class="card"><h3>📦 Размер выпавших предметов</h3><p>Размер предметов, лежащих на земле</p><div class="command" id="c_drops">/scale set pehkui:drops 0.8 @p</div><button onclick="copy('c_drops', this)">Копировать</button></div>
+      <div class="card"><h3>🏹 Размер снарядов</h3><p>Размер стрел, снежков, яиц и других снарядов</p><div class="command" id="c_project">/scale set pehkui:projectiles 1.3 @p</div><button onclick="copy('c_project', this)">Копировать</button></div>
+      <div class="card"><h3>💥 Размер взрыва</h3><p>Радиус взрыва крипера, кристалла Энда и т.д.</p><div class="command" id="c_expl">/scale set pehkui:explosions 2.0 @p</div><button onclick="copy('c_expl', this)">Копировать</button></div>
+    </div>
+  </div>
+
+  <!-- Дополнительные полезные команды -->
+  <div class="category">
+    <h2><span class="emoji">🛠️</span> Продвинутые операции</h2>
+    <div class="cards-grid">
+      <div class="card"><h3>🎲 Случайный масштаб</h3><p>Устанавливает случайное значение в указанном диапазоне</p><div class="command" id="c_random">/scale randomize pehkui:base 0.5 2.0 @p</div><button onclick="copy('c_random', this)">Копировать</button></div>
+      <div class="card"><h3>📋 Получить NBT масштаба</h3><p>Показывает NBT-данные масштаба сущности</p><div class="command" id="c_nbt">/scale nbt get @p</div><button onclick="copy('c_nbt', this)">Копировать</button></div>
+      <div class="card"><h3>🔁 Сброс конкретного типа</h3><p>Сбрасывает только указанный параметр</p><div class="command" id="c_reset_type">/scale reset pehkui:attack @p</div><button onclick="copy('c_reset_type', this)">Копировать</button></div>
+      <div class="card"><h3>⏱️ Получить задержку изменения</h3><p>Показывает текущую задержку изменения масштаба</p><div class="command" id="c_get_delay">/scale delay get pehkui:base @p</div><button onclick="copy('c_get_delay', this)">Копировать</button></div>
+    </div>
+  </div>
+
+  <!-- Справочная информация -->
+  <div class="note">
+    <strong>📌 Как использовать:</strong>
+    • <strong>@p</strong> — ближайший игрок | <strong>@s</strong> — вы | <strong>@a</strong> — все игроки | <strong>@e[type=zombie]</strong> — все зомби
+    • Значение <strong>1.0</strong> — стандартный размер | <strong>&lt;1</strong> — меньше | <strong>&gt;1</strong> — больше
+    • Для плавного изменения используйте задержку: <code>/scale delay set pehkui:base 20 @p</code>
+    • Список всех параметров: base, width, height, hitbox_width, hitbox_height, eye_height, model_width, model_height, third_person, motion, step_height, view_bobbing, falling, flight, jump_height, visibility, reach, block_reach, entity_reach, held_item, drops, projectiles, explosions, attack, defense, knockback, health, mining_speed, attack_speed
+  </div>
+  <div class="footer">
+    Pehkui Mod — полный справочник команд | Обновлено с информацией о всех 28 типах масштаба
+  </div>
+</div>
+
+<script>
+  // Исправленная функция копирования: принимает id элемента с командой и ссылку на кнопку
+  function copy(commandId, buttonElement) {
+    const commandDiv = document.getElementById(commandId);
+    if (!commandDiv) {
+      console.error('Элемент с id не найден:', commandId);
+      return;
+    }
+    
+    // Получаем чистый текст команды (убираем лишние пробелы и переводы строк)
+    let commandText = commandDiv.innerText.trim();
+    
+    // Копируем в буфер обмена
+    navigator.clipboard.writeText(commandText).then(() => {
+      // Сохраняем исходный текст кнопки
+      const originalText = buttonElement.innerText;
+      buttonElement.innerText = '✅ Скопировано!';
+      // Возвращаем исходный текст через 1.5 секунды
+      setTimeout(() => {
+        buttonElement.innerText = originalText;
+      }, 1500);
+    }).catch(err => {
+      console.error('Ошибка копирования: ', err);
+      alert('Не удалось скопировать команду. Выделите её вручную.');
+    });
+  }
+</script>
+</body>
+</html>
